@@ -154,7 +154,7 @@ export default {
         };
         setTimeout(() => {
           this.$router.push({ name: "Login" });
-        },3000);
+        }, 3000);
       }
     },
   },

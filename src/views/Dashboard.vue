@@ -27,7 +27,7 @@
     <template v-if="dis === 'exam'">
       <div
         v-if="materias.length === 0"
-        class="has-background-light is-full-w is-flex is-justified-center is-aligned-center "
+        class="has-background-light is-full-w is-flex is-justified-center is-aligned-center"
       >
         <pulse-loader :size="size"></pulse-loader>
       </div>
@@ -45,7 +45,6 @@
 </template>
 
 <script>
-import * as firebase from "firebase";
 import { database } from "../firebase/init";
 import MateriaCard from "./DashDis/MateriaCard";
 import Rules from "./DashDis/Rules";
@@ -61,6 +60,9 @@ export default {
     };
   },
   methods: {
+    setMateriaArr(payload) {
+      this.$store.dispatch("SET_MATERIA_ARR", payload);
+    },
     getData() {
       database
         .collection("materias")
@@ -68,13 +70,23 @@ export default {
         .then((snapshot) => {
           snapshot.docs.forEach((docs) => this.materias.push(docs.data()));
         });
+      this.setMateriaArr(this.materias);
     },
     toogleDis(view) {
       this.dis = view;
     },
   },
-  mounted() {
-    this.getData();
+  computed: {
+    getState() {
+      return this.$store.getters.getState;
+    },
+  },
+  created() {
+    if (this.getState.materiaArr === undefined) {
+      this.getData();
+    } else {
+      this.materias = this.getState.materiaArr;
+    }
   },
 };
 </script>

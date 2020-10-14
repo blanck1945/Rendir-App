@@ -122,11 +122,11 @@ export default {
       this.aceptRules = true;
     },
     submitForm() {
-      if (!this.aceptRules) {
-        return (this.error = "Debe aceptar las condiciones para rendir");
+      if (this.aceptRules) {
+        this.toogleRules();
       }
 
-      this.toogleRules();
+      this.error = "Debe aceptar las condiciones para rendir";
     },
   },
 };

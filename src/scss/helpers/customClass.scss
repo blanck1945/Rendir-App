@@ -38,9 +38,19 @@
 
 .circle {
   border-radius: 50%;
-  min-height: 20px;
+  height: 20px;
   border: 1px solid black;
-  min-width: 20px;
+  width: 20px;
+}
+
+.circle-fix {
+  width: 40px;
+  height: 40px;
+}
+
+.circle-fix-big {
+  width: 60px;
+  height: 60px;
 }
 
 .res_div {

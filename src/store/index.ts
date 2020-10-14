@@ -8,6 +8,9 @@ export default new Vuex.Store({
     disName: "",
     login: false,
     userExam: undefined,
+    materia: "",
+    res: undefined,
+    materiaArr: undefined,
   },
   mutations: {
     setLoginUser(state, payload) {
@@ -17,6 +20,15 @@ export default new Vuex.Store({
     setUserExam(state, payload) {
       state.userExam = payload;
     },
+    setMateriaName(state, payload) {
+      state.materia = payload;
+    },
+    setMateriaArr(state, payload) {
+      state.materiaArr = payload;
+    },
+    setRes(state, payload) {
+      state.res = payload;
+    },
   },
   actions: {
     SET_LOGIN_USER: (context, payload) => {
@@ -24,6 +36,15 @@ export default new Vuex.Store({
     },
     SET_USER_EXAM: (context, payload) => {
       context.commit("setUserExam", payload);
+    },
+    SET_MATERIA_NAME: (context, payload) => {
+      context.commit("setMateriaName", payload);
+    },
+    SET_MATERIA_ARR: (context, payload) => {
+      context.commit("setMateriaArr", payload);
+    },
+    SET_RES_ARR: (context, payload) => {
+      context.commit("setRes", payload);
     },
   },
   modules: {},

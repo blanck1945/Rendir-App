@@ -53,11 +53,11 @@
         <div class="is-flex is-justified-center">
           <div class="is-flex is-justified-center mr-6">
             <p class="mr-2 bold">Alumno:</p>
-            <p>{{ getName }}</p>
+            <p>{{ getState.disName }}</p>
           </div>
           <div class="is-flex is-justified-center">
             <p class="mr-2 bold">Materia:</p>
-            <p>{{}}</p>
+            <p>{{getState.materia}}</p>
           </div>
         </div>
         <div class="is-flex">
@@ -139,8 +139,8 @@ export default {
     };
   },
   computed: {
-    getName() {
-      return this.$store.getters.getName;
+    getState() {
+      return this.$store.getters.getState;
     },
   },
   methods: {
@@ -175,6 +175,7 @@ export default {
       const populatedData = populateRes(this.questions);
       const examGrade = await checkExam(res, populatedData);
       this.$store.dispatch("SET_USER_EXAM", examGrade);
+      this.$store.dispatch("SET_RES_ARR", res)
       this.$router.push({ name: "Finish" });
     },
     handlerRes() {

@@ -18,7 +18,11 @@ export default {
     materiaProp: Object,
   },
   methods: {
+    setMateriaName(payload) {
+      this.$store.dispatch("SET_MATERIA_NAME", payload);
+    },
     takeExam() {
+      this.setMateriaName(this.materia.materia_name);
       this.$router.push("/exam");
     },
   },

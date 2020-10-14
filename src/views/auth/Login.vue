@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import db from "../../firebase/init.ts";
-import * as firebase from "firebase/app";
 import "firebase/auth";
 import { onSubmit, controlCheck } from "./func";
 export default {
@@ -77,7 +75,7 @@ export default {
       }
       const userLog = await onSubmit(this.user, "login");
       if (userLog.user) {
-        this.setLoginUser();
+        this.setLoginUser(this.user.email);
         this.$router.push({ name: "Dashboard" });
       }
       this.errors = {
