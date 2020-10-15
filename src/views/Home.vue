@@ -5,7 +5,9 @@
     >
       <img class="image-fix" src="../assets/login.jpeg" />
       <div class="ml-6 px-2 has-text-white size-4">
-        <h3 class="">Tene listo de antemano el DNI y calculadora en casao de ser necesaria/h3>
+        <h3 class="">
+          Tene listo de antemano el DNI y calculadora en casao de ser necesaria
+        </h3>
         <p>
           Una vez habilitado, firma el consentimiento previo y ya estas listo
           para rendir. Todo el exito en tu examen.
