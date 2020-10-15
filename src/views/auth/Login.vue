@@ -58,8 +58,8 @@ export default {
     };
   },
   methods: {
-    setLoginUser() {
-      this.$store.dispatch("SET_LOGIN_USER");
+    toogleLogin() {
+      this.$store.dispatch("TOOGLE_LOGIN");
     },
     toogleError() {
       this.errors.error = false;
@@ -75,7 +75,7 @@ export default {
       }
       const userLog = await onSubmit(this.user, "login");
       if (userLog.user) {
-        this.setLoginUser(this.user.email);
+        this.toogleLogin();
         this.$router.push({ name: "Dashboard" });
       }
       this.errors = {

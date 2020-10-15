@@ -71,7 +71,6 @@
 </template>
 
 <script>
-import db from "../../firebase/init.ts";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { matchPass, onSubmit, controlCheck } from "./func";
@@ -114,6 +113,7 @@ export default {
       };
     },
     setUserName(payload) {
+      console.log("using this route");
       this.$store.dispatch("SET_USER_NAME", payload);
     },
     async register() {
@@ -147,6 +147,7 @@ export default {
       const data = await onSubmit(this.user, "register");
 
       if (data) {
+        this.setUserName(this.user.name);
         this.resetForm();
         this.succ = {
           state: true,

@@ -59,7 +59,7 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <template v-if="getLogState">
+          <template v-if="getState.login">
             <div
               class="dropdown"
               :class="{ 'is-active': isDropOpen }"
@@ -71,7 +71,7 @@
                   aria-haspopup="true"
                   aria-controls="dropdown-menu"
                 >
-                  <span>{{ "Bievenida " + user.displayName }}</span>
+                  <span>{{ "Bievenida " + getState.disName }}</span>
                   <span class="icon is-small">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                   </span>
@@ -91,7 +91,7 @@
             </div>
           </template>
 
-          <template v-if="!getLogState">
+          <template v-if="!getState.login">
             <div class="buttons">
               <router-link to="/register" class="button is-link">
                 <strong>Registrarme</strong>
@@ -125,8 +125,8 @@ export default {
     toogleDrop() {
       this.isDropOpen = !this.isDropOpen;
     },
-    toogleLogState(payload) {
-      this.$store.dispatch("SET_LOGIN_USER", payload);
+    toogleLogState() {
+      this.$store.dispatch("SET_LOG_OUT");
     },
     async logOut() {
       await firebase.auth().signOut();
@@ -135,8 +135,8 @@ export default {
     },
   },
   computed: {
-    getLogState() {
-      return this.$store.getters.getUserState;
+    getState() {
+      return this.$store.getters.getState;
     },
   },
   created() {

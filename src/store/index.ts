@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    disName: "",
+    disName: undefined,
     login: false,
     userExam: undefined,
     materia: "",
@@ -13,9 +13,14 @@ export default new Vuex.Store({
     materiaArr: undefined,
   },
   mutations: {
-    setLoginUser(state, payload) {
-      state.login = !state.login;
+    setUserName(state, payload) {
       state.disName = payload;
+    },
+    toogleLogin(state) {
+      state.login = true;
+    },
+    setLogOut(state) {
+      state.login = false;
     },
     setUserExam(state, payload) {
       state.userExam = payload;
@@ -31,8 +36,14 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    SET_LOGIN_USER: (context, payload) => {
-      context.commit("setLoginUser", payload);
+    SET_USER_NAME: (context, payload) => {
+      context.commit("setUserName", payload);
+    },
+    TOOGLE_LOGIN: (context) => {
+      context.commit("toogleLogin");
+    },
+    SET_LOG_OUT: (context) => {
+      context.commit("setLogOut");
     },
     SET_USER_EXAM: (context, payload) => {
       context.commit("setUserExam", payload);

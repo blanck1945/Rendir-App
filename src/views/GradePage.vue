@@ -103,10 +103,7 @@ export default {
       return this.$store.getters.getState;
     },
     getResJust() {
-      const numArr = [];
-      const newArr = [];
       const justArr = [];
-      console.log(this.wrong);
       this.wrong.map((res) =>
         this.getState.res.map((el) =>
           el.preguntaId === res.preguntaId
@@ -114,7 +111,6 @@ export default {
             : null
         )
       );
-      console.log(this.justArr);
       return justArr;
     },
     getCorrect() {
@@ -127,13 +123,14 @@ export default {
       const wrongArr = this.getState.userExam.filter((el) => {
         return !el.valorCorrecto;
       });
+      console.log(wrongArr);
       this.setCorrectNum(wrongArr.length);
 
       this.setWrongArr(wrongArr);
       return wrongArr.length;
     },
     getGrade() {
-      const grade = 10 - 3.33 * this.correctNum;
+      const grade = this.correctNum === 0 ? 0 : this.correctNum * 3.33;
       if (grade.length === 1) {
         return this.setGrade(grade);
       } else {
