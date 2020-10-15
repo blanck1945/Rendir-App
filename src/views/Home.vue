@@ -32,8 +32,8 @@
       <div class="ml-6 px-2 has-text-white size-4">
         <h3 class="">Recibi tu nota al instante</h3>
         <p>
-          Podes mirar tus errores, tomar nota para proximos examnes y reclamar
-          en caso de que concideres que una respuesta es correcta.
+          Podes mirar tus errores, tomar nota para proximos examenes y reclamar
+          en caso de que consideres que una respuesta es correcta.
         </p>
       </div>
     </div>
