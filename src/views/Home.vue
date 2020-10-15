@@ -5,7 +5,7 @@
     >
       <img class="image-fix" src="../assets/login.jpeg" />
       <div class="ml-6 px-2 has-text-white size-4">
-        <h3 class="">Recorda que tenes 60 minutos para rendir</h3>
+        <h3 class="">Tene listo de antemano el DNI y calculadora en casao de ser necesaria/h3>
         <p>
           Una vez habilitado, firma el consentimiento previo y ya estas listo
           para rendir. Todo el exito en tu examen.
@@ -20,7 +20,7 @@
         <h3 class="">Recorda que tenes 60 minutos para rendir</h3>
         <p>
           Examenes de 20 preguntas con opciones multiples. Silencia tu microfono
-          y mantere tu cama en posición siempre.
+          y mantere tu camara siempre en posición.
         </p>
       </div>
       <img class="image-fix" src="../assets/exam.jpeg" />
