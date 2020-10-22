@@ -49,7 +49,7 @@
         <p class="py-2">{{ el.justificacionRes }}</p>
       </div>
       <div class="is-flex is-justified-center">
-        <button class="button is-link" @click="postGrade">
+        <button class="button is-link" @click="postGrade" >
           Finalizar Examen
         </button>
       </div>
@@ -59,6 +59,7 @@
 
 <script>
 import { database } from "../firebase/init";
+import * as firebase from "firebase"
 import { getCircleColor, calGrade, rateGrade } from "./colorFunc";
 export default {
   name: "GradePage",
@@ -85,15 +86,23 @@ export default {
     },
     setGrade(grade) {
       this.grade = grade;
+      console.log(this.grade)
       return grade;
     },
     async postGrade() {
       const newGrade = {
-        nombreEstudiante: this.getState.disName,
+        nombreEstudiante: firebase.auth().currentUser.email,
         materia: this.getState.materia,
         nota: this.grade,
         estado: rateGrade(this.grade),
       };
+
+    /*await database.collection("materias").where("materiaId", "==", this.getState.materiaArr[0].materia_id).set({
+      materiaId: 1,
+      materiaName: "Economía",
+      materiaState: false
+    })*/
+
       await database.collection("notas").add(newGrade);
       this.$router.push("/");
     },
@@ -123,15 +132,15 @@ export default {
       const wrongArr = this.getState.userExam.filter((el) => {
         return !el.valorCorrecto;
       });
-      console.log(wrongArr);
       this.setCorrectNum(wrongArr.length);
 
       this.setWrongArr(wrongArr);
       return wrongArr.length;
     },
     getGrade() {
-      const grade = this.correctNum === 0 ? 0 : this.correctNum * 3.33;
-      if (grade.length === 1) {
+      const grade = this.correctNum === 0 ? 0 : 10 - (this.correctNum * 3.33);
+
+     if (grade.length === 1) {
         return this.setGrade(grade);
       } else {
         return this.setGrade(calGrade(grade));

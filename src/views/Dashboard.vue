@@ -18,11 +18,6 @@
       >
         Reglas
       </div>
-      <div
-        class="div_info has-background-link my-2 has-text-white is-flex is-aligned-center pl-2 is-clickable size-4 is-hovered bor-round-4"
-      >
-        Opciones
-      </div>
     </div>
     <template v-if="dis === 'exam'">
       <div

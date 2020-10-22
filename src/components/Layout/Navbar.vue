@@ -71,7 +71,7 @@
                   aria-haspopup="true"
                   aria-controls="dropdown-menu"
                 >
-                  <span>{{ "Bievenida " + getState.disName }}</span>
+                  <span>{{ "Bievenida " + this.user.email }}</span>
                   <span class="icon is-small">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                   </span>
@@ -143,6 +143,7 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.user = user;
+        console.log(this.user)
         this.toogleLogState(user.displayName);
       } else {
         this.userState = false;

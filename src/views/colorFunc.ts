@@ -18,7 +18,7 @@ export const calGrade = (num: number) => {
 
 export const rateGrade = (grade: number) => {
   if (grade < 4) {
-    "desaprobado";
+    return "desaprobado";
   } else if (grade >= 4 && grade < 7) {
     return "aprobado";
   } else {
